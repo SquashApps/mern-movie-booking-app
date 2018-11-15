@@ -1,0 +1,10 @@
+{
+    "presets": ["env"],
+    "ignore": [
+        "package-lock.json",
+        "package.json",
+        ".eslintrc.json",
+        ".npmrc",
+        ".gitignore"
+    ]
+}

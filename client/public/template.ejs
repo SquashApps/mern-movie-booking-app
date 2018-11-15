@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <% if(process.env.NODE_ENV === 'production') {
+    %><meta name="msapplication-starturl" content="/"><%
+    %><meta name="msapplication-TileColor" content="#8f1922"><%
+    %><meta name="application-name" content="Book Flicks"><%
+    %><meta name="theme-color" content="#8f1922"><%
+  } %>
+  <title>Book Flicks</title>
+    %><style>#no-js-warning {background-color: rgb(33, 33, 33);font-family: Roboto;position: absolute;top: 0;left: 0;right: 0;bottom: 0;}<%
+    %> #no-js-warning .header {font-size: 50px;margin-top: 150px;text-align: center;color: white;}<%
+    %>  #no-js-warning .text {text-align: center;color: white;}  #no-js-warning a {color: #4fc3f7;}</style><%
+</head>
+<body>
+  <div id="root"></div>
+  %><div id="no-js-warning"><h1 class="header">Welcome To Book flicks</h1><%
+    %>  <h2 class="text">Please <a href="https://www.enable-javascript.com/">turn on javascript</a> on your browser to see the page.  <br><br>If javascript is enabled, upgrade to a newer browser version or choose a different browser.</h2><%
+    %></div><%
+      %><script> document.getElementById('no-js-warning').remove();</script><%
+</body>
+</html>
