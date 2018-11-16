@@ -1,0 +1,6 @@
+:root {
+    --text-color: rgb(45, 45, 45);
+    --seat-color: rgb(162,207,110);
+    --booked-seat-color: rgb(255,76,76);
+    --body-font-family: "Roboto", sans-serif;
+}

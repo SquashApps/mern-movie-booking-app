@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
+import seatReducer from '../redux/seats/reducer';
 
 const routeInitialState = fromJS({ location: null });
 
@@ -15,4 +16,5 @@ function routerReducer(state = routeInitialState, action) {
 
 export default combineReducers({
   router: routerReducer,
+  seat: seatReducer,
 });

@@ -1,0 +1,23 @@
+.page__content {
+    width: 750px;
+    padding-top:90px;
+    margin:0 auto;
+}
+.seats__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+.screen_illuminator {
+    position: fixed;
+    background: #fff179;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    margin: 0px 40px;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 0.83rem;
+    font-weight: 300;
+    text-align: center;
+    opacity: 0.9;
+}

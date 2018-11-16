@@ -1,9 +1,9 @@
 import { fork } from 'redux-saga/effects';
-import { watchMovieSaga } from '../redux/movies/sagas';
+import { watchSeatSaga } from '../redux/seats/sagas';
 
 export default function* rootSaga() {
   yield [
-    fork(watchMovieSaga),
+    fork(watchSeatSaga),
   ];
 }
 

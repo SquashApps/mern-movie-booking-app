@@ -23,7 +23,7 @@ module.exports = () => {
         mongoose.connect(connectstring, mongoOpts)
             .then(() => {
                  // seed the database with movies and screens and seats      
-                // require('../seed/seeder')();
+                require('../seed/seeder')();
             })
             .catch(function () { });
     };
@@ -73,7 +73,8 @@ module.exports = () => {
     fs.readdirSync(SRC_PATH).forEach(file => {
 
         let f = path.basename(file, '.js');
-        if (f !== file && f !== 'index') {
+        // TODO: Bootstrap other models after basic feature setup
+        if (f !== file && f !== 'index' && f == 'seats') {
             // eslint-disable-next-line
             collections.f = require(path.join(`${__dirname}/${file}`));
         }

@@ -1,10 +1,10 @@
 let string = 'A';
-export const generateSeatSeed = (movieID, seatID, noOfSeats) => {
+export const generateSeatSeed = (noOfSeats) => {
     string = 'A';
     let seats = [];
     let count = 0;
     
-    if(!movieID || !seatID || !noOfSeats) return;
+    if(!noOfSeats) return;
 
 
     const seatNumbers = Array(Number(noOfSeats)).fill()
@@ -32,11 +32,13 @@ export const generateSeatSeed = (movieID, seatID, noOfSeats) => {
     seats = seatNumbers.map((seat) => {
         return {
             seatNo: seat,
-            movieID,
-            seatID
         }
     });
-    return seats;
+    const seedData = [{
+        "model":"Seat",
+        "documents": [...seats]
+    }]
+    return seedData;
 }
 
 const generateString = (character) => {

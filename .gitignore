@@ -3,3 +3,5 @@ server/node_modules
 client/www
 server/dist
 .vscode
+client/package-lock.json
+server/package-lock.json

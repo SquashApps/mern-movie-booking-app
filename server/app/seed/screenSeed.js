@@ -1,3 +1,6 @@
+/**
+ * Seed data for further enhancement of features
+ */
 const seed = [
     {
         name: 'screen1',

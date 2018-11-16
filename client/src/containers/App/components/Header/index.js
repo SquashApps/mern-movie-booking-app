@@ -1,19 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import Loadable from 'react-loadable';
-
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import TypoGraphy from '@material-ui/core/Typography';
 
-
-const Header = () => {
+const styles = theme => ({
+  logoText: {
+    margin: theme.spacing.unit * 2,
+  },
+});
+// eslint-disable-next-line
+const Header = ({ genres, classes }) => (
   <AppBar
-      position="fixed"
-      color="primary"
+    position="fixed"
+    color="primary"
+  >
+    <TypoGraphy
+      align="center"
+      classes={{
+        root: classes.logoText,
+      }}
+      variant="h6"
+      color="inherit"
     >
-      <TypoGraphy>
         Book Flicks
     </TypoGraphy>
-    </AppBar>;
+  </AppBar>
+);
+
+Header.propTypes = {
+  genres: ImmutablePropTypes.List,
+  classes: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+    ])
+  ).isRequired,
 };
+
+export default withStyles(styles)(Header);

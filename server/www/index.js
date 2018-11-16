@@ -14,10 +14,6 @@ const port = process.env.PORT || config.get('APP_PORT');
 
 app.use(helmet());
 /**
- * Error handler
- */
-app.use(require('../app/lib/error-handler.js')());
-/**
  * Routes setup
  */
 app.use(require('../app/routes')());

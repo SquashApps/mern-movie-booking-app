@@ -11,10 +11,6 @@ const seatSchema = mongoose.Schema({
         enum: ['PENDING', 'CLOSED', 'CANCELLED', 'OPEN'],
         default: 'OPEN'
     },
-    movieID: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-    },
     created: { 
         type: Date, 
         default : () => new Date()

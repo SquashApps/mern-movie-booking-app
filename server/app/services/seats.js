@@ -3,42 +3,9 @@ import Seats from '../models/seats';
 import { generateSeatSeed } from '../seed/seatSeed';
 
 
-export const createSeats = (req, res) => {
-
-    const { movieID, screenID, noOfSeats } = req.body;
-
-    if (movieID || screenID || noOfSeats) res.status(400);
-
-    const seatSeed = generateSeatSeed(movieID, screenID, noOfSeats);
-    let newSeats = [];
-    async.each(seatSeed, (seat, cb) => {
-        if (!seat) return cb('No seat found');
-
-        const Seat = new Seats(seat);
-
-        Seat.save((err, newSeat) => {
-            if (err) return cb(err);
-
-            newSeats = [...newSeats, ...[newSeat]];
-
-            cb();
-        })
-    }, (err) => {
-        if (err) return res.status(500).send(err);
-        // console.log('newSeats', newSeats);
-        return res.status(201).send(newSeats);
-    });
-}
-
-export const getSeats = (req, res) => {
-
-    const { screenID } = req.params || req.query;
-
-    if (!screenID) res.status(400);
-
-    Seats.get({ screenID }, (err, seats) => {
-        if (err) res.status(500).send(err);
-
+export const getAllSeats = (req, res) => {
+    Seats.find({}, (err, seats) => {
+        if(err) res.status(500).send(err);
         res.status(200).send(seats);
     });
 }
@@ -171,4 +138,48 @@ export const bookTickets = (req, res) => {
             .catch((err) => res.status(500).send({ status: 'error', err}))
     }
 
+}
+
+/**
+ * 
+ * API's for further enhancement of features
+ */
+export const createSeats = (req, res) => {
+
+    const { movieID, screenID, noOfSeats } = req.body;
+
+    if (movieID || screenID || noOfSeats) res.status(400);
+
+    const seatSeed = generateSeatSeed(movieID, screenID, noOfSeats);
+    let newSeats = [];
+    async.each(seatSeed, (seat, cb) => {
+        if (!seat) return cb('No seat found');
+
+        const Seat = new Seats(seat);
+
+        Seat.save((err, newSeat) => {
+            if (err) return cb(err);
+
+            newSeats = [...newSeats, ...[newSeat]];
+
+            cb();
+        })
+    }, (err) => {
+        if (err) return res.status(500).send(err);
+        // console.log('newSeats', newSeats);
+        return res.status(201).send(newSeats);
+    });
+}
+
+export const getSeats = (req, res) => {
+
+    const { screenID } = req.params || req.query;
+
+    if (!screenID) res.status(400);
+
+    Seats.get({ screenID }, (err, seats) => {
+        if (err) res.status(500).send(err);
+
+        res.status(200).send(seats);
+    });
 }

@@ -4,6 +4,10 @@ import screenSeed  from '../seed/screenSeed.js';
 import status from 'statuses';
 import async from 'async';
 
+/**
+ * API's for further enhancement of features
+ */
+
 export const getScreens = async (req, res) => {
     
     const { movieID } = req.params || req.query;

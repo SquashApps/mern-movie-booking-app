@@ -1,6 +1,10 @@
 import Movies from '../models/movies';
 import status from 'statuses'
 
+/**
+ * API's for further enhancement of features
+ */
+
 export const getAllMovies = (req, res) => {
     Movies.find({}, (err, movies) => {
 

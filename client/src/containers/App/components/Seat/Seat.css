@@ -1,0 +1,14 @@
+.seat {
+    background: var(--seat-color);
+    margin: 13px;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.seat:nth-child(3n) {
+    margin-right: 12px;
+    margin-left: 45px;
+}
+.booked {
+    background: var(--booked-seat-color);
+}
