@@ -1,7 +1,7 @@
 {
   "name": "book-flicks-services",
   "version": "1.0.0",
-  "description": "",
+  "description": "test movie booking app services",
   "main": "index.js",
   "engines": {
     "node": ">=8.0.0"
@@ -11,13 +11,15 @@
     "lint": "eslint -- . --ignore-path .gitignore",
     "build": "rimraf dist && babel ./ --out-dir dist --ignore node_modules --copy-files",
     "precommit": "npm run lint",
-    "preinstall": "rimraf node_modules && rimraf package-lock.json && npm cache clean"
+    "preinstall": "rimraf node_modules && rimraf package-lock.json && npm cache clean --force"
   },
   "keywords": [],
   "author": "akila",
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
     "config": "^2.0.1",
     "cors": "^2.8.5",
@@ -30,6 +32,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "eslint": "^5.9.0",
     "eslint-plugin-node": "^8.0.0",

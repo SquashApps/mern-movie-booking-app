@@ -23,7 +23,7 @@ module.exports = () => {
         mongoose.connect(connectstring, mongoOpts)
             .then(() => {
                  // seed the database with movies and screens and seats      
-                require('../seed/seeder')();
+                // require('../seed/seeder')();
             })
             .catch(function () { });
     };

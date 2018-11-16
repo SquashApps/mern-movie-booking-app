@@ -7,7 +7,7 @@ const connection_uri = `mongodb://${config.get('DB_CONFIG.HOST')}:${config.get('
 module.exports = () => {
     seeder.connect(connection_uri, () => {
 
-    seeder.clearModels(['Movie'], () => {
+    seeder.clearModels(['Movie', 'Screen', 'Seat', 'User'], () => {
         seeder.populateModels(movieSeed, () => {
             // eslint-disable-next-line
             console.info('Movie seed has been restored in the DB');

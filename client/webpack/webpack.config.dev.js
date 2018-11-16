@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 const path = require('path');
 
@@ -87,16 +87,6 @@ module.exports = () => {
         template: resolve(__dirname, '../public/template.ejs'),
         inject: 'body',
       }),
-      new CopyWebpackPlugin([
-        {
-          from: resolve(__dirname, '../src/static/'),
-          to: resolve(__dirname, '../www/static/'),
-        },
-        {
-          from: resolve(__dirname, '../public/manifest.json'),
-          to: resolve(__dirname, '../www/manifest.json'),
-        },
-      ]),
     ],
   };
 };

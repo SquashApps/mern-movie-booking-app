@@ -15,10 +15,6 @@ const seatSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
-    userID: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-    },
     created: { 
         type: Date, 
         default : () => new Date()

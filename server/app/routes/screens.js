@@ -1,9 +1,14 @@
-import { getMoviesByGenre, getAllMovies } from '../services/movies';
+import { getScreens, createScreens } from '../services/screens';
 import express from 'express';
 const router = express.Router();
 
 module.exports = () => {
-    router.get('/', getAllMovies);
-    router.get('/genre/:genre', getMoviesByGenre);
+
+    // get 
+    router.get('/movie/:id', getScreens);
+
+    // post
+    router.post('/', createScreens);
+
     return router;
 }

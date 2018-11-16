@@ -7,7 +7,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FailOnErrorsPlugin = require('fail-on-errors-webpack-plugin');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
+
 
 const path = require('path');
 
@@ -134,36 +134,10 @@ module.exports = () => {
       new CleanWebpackPlugin(['www/*'], {
         root: resolve(__dirname, '../'),
       }),
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-        'process.env.FACEBOOK_APP_ID': JSON.stringify(
-          process.env.FACEBOOK_APP_ID
-        ),
-        'process.env.GOOGLEMAPS_SECRET': JSON.stringify(
-          process.env.GOOGLEMAPS_SECRET
-        ),
-        'process.env.RECAPTCHA_SITE_KEY': JSON.stringify(
-          process.env.RECAPTCHA_SITE_KEY
-        ),
-        'process.env.GOOGLE_ANALYTICS_ID': JSON.stringify(
-          process.env.GOOGLE_ANALYTICS_ID
-        ),
-        'process.env.API_HOST': JSON.stringify(
-          process.env.API_HOST
-        ),
-      }),
       new CopyWebpackPlugin([
-        {
-          from: resolve(__dirname, '../src/static/'),
-          to: resolve(__dirname, '../www/static/'),
-        },
         {
           from: resolve(__dirname, '../public/server.js'),
           to: resolve(__dirname, '../www/server.js'),
-        },
-        {
-          from: resolve(__dirname, '../public/manifest.json'),
-          to: resolve(__dirname, '../www/manifest.json'),
         },
       ]),
       new MiniCssExtractPlugin({
@@ -175,9 +149,6 @@ module.exports = () => {
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new HtmlWebpackPlugin({
         template: resolve(__dirname, '../public/template.ejs'),
-      }),
-      new OfflinePlugin({
-        autoUpdate: true,
       }),
       new FailOnErrorsPlugin({
         failOnErrors: true,

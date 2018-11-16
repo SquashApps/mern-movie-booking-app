@@ -1,0 +1,13 @@
+/**
+ * movie genre fetch
+ */
+export const GET_MOVIE_GENRE_REQUEST = 'GET_MOVIE_GENRE_REQUEST';
+export const GET_MOVIE_GENRE_SUCCEEDED = 'GET_MOVIE_GENRE_SUCCEEDED';
+export const GET_MOVIE_GENRE_FAILED = 'GET_MOVIE_GENRE_FAILED';
+
+/**
+ * movies fetch action
+ */
+export const GET_MOVIES_REQUEST = 'GET_MOVIE_REQUEST';
+export const GET_MOVIES_SUCCEEDED = 'GET_MOVIES_SUCCEEDED';
+export const GET_MOVIES_FAILED = 'GET_MOVIES_FAILED';

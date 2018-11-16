@@ -1,14 +1,14 @@
 {
   "name": "book-flicks-ui",
   "version": "1.0.0",
-  "description": "",
+  "description": "test movie booking app ui",
   "main": "index.js",
   "scripts": {
     "start": "node ./www/server",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config=webpack/webpack.config.dev.js --progress",
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js --progress",
     "lint": "eslint public src webpack",
-    "preinstall": "rm -rf ./node_modules && npm cache clean && npm package-lock.json"
+    "preinstall": "rm -rf ./node_modules && npm cache clean --force && rm -rf package-lock.json"
   },
   "license": "ISC",
   "devDependencies": {
@@ -42,7 +42,6 @@
     "babel-plugin-react-remove-properties": "^0.2.5",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.19",
     "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^4.5.4",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "eslint": "4.19.1",
@@ -102,9 +101,7 @@
     "react-router-dom": "^4.3.1",
     "react-router-redux": "5.0.0-alpha.9",
     "redux": "^4.0.1",
-    "redux-form": "^7.4.2",
     "redux-immutable": "^4.0.0",
-    "redux-responsive": "^4.3.8",
     "redux-saga": "^0.16.2",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0"
