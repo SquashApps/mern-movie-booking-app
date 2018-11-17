@@ -7,15 +7,15 @@
 
 ### Technologies used:
 
-1.[react](https://reactjs.org/)
-2. [redux](https://redux.js.org/)
-3. [react-loadable](https://https://github.com/jamiebuilds/react-loadable)
-4. [reselect](https://github.com/reactjs/reselect)
-5. [redux-thunk](https://github.com/gaearon/redux-thunk)
-6. [redux-saga](https://github.com/redux-saga/redux-saga)
-7. [react-router-dom](https://www.npmjs.com/package/react-router-dom)
-8. [material-ui](http://www.material-ui.com/#/)
-9. [immutable](https://facebook.github.io/immutable-js/)
+- [react](https://reactjs.org/)
+- [redux](https://redux.js.org/)
+- [react-loadable](https://https://github.com/jamiebuilds/react-loadable)
+- [reselect](https://github.com/reactjs/reselect)
+- [redux-thunk](https://github.com/gaearon/redux-thunk)
+- [redux-saga](https://github.com/redux-saga/redux-saga)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [material-ui](http://www.material-ui.com/#/)
+- [immutable](https://facebook.github.io/immutable-js/)
 
 
 ### Project Structure
@@ -45,12 +45,12 @@
 
 ### Technologies used:
 
-1.[node](https://reactjs.org/) 
-2. [express]()
-2. [mongoose](https://redux.js.org/)
-3. [helmet](https://https://github.com/jamiebuilds/react-loadable)
-4. [cors](https://github.com/reactjs/reselect)
-5. [mongoose-seed](https://github.com/gaearon/redux-thunk)
+- [node](https://nodejs.org/en/) 
+- [express](https://expressjs.com/)
+- [mongoose](https://mongoosejs.com/)
+- [helmet](https://helmetjs.github.io/)
+- [cors](https://github.com/expressjs/cors#readme)
+- [mongoose-seed](https://github.com/gaearon/redux-thunk)
 
 ### Project Structure
  - [www](server/www) folder contains the server setup.
