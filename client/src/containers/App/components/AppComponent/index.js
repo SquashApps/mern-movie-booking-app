@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
+import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Loadable from 'react-loadable';
 
@@ -12,15 +13,49 @@ const SectionLoadable = Loadable({
   loading: () => null,
 });
 
-const AppComponent = ({ genres, seats }) => (
-  <Fragment>
-    <HeaderLoadable genres={genres} />
-    <SectionLoadable seats={seats} />
-  </Fragment>
-);
+class AppComponent extends Component {
+  static propTypes = {
+    toggleSeatBookingStatus: PropTypes.func.isRequired,
+    seats: ImmutablePropTypes.list.isRequired,
+  }
 
-AppComponent.propTypes = {
-  genres: ImmutablePropTypes.List,
-  seats: ImmutablePropTypes.List,
-};
+
+  handleSeatClick = (e, seat) => {
+    const { checkAndSetStatus } = this;
+    const { toggleSeatBookingStatus } = this.props;
+
+    const status = checkAndSetStatus(seat);
+    const payload = {
+      seatID: seat.get('_id'),
+      status,
+    };
+
+    toggleSeatBookingStatus(payload);
+  }
+
+  checkAndSetStatus = (seat) => {
+    if (seat.get('bookingStatus') === 'OPEN' || seat.get('bookingStatus') === 'CANCELLED') {
+      return 'CLOSED';
+    }
+
+    if (seat.get('bookingStatus') === 'CLOSED') {
+      return 'CANCELLED';
+    }
+    return 'OPEN';
+  }
+
+  render() {
+    // eslint-disable-next-line
+    const { genres, seats } = this.props;
+    const { handleSeatClick } = this;
+
+    return (
+      <Fragment>
+        <HeaderLoadable genres={genres} />
+        <SectionLoadable seats={seats} handleSeatClick={handleSeatClick} />
+      </Fragment>
+    );
+  }
+}
+
 export default AppComponent;

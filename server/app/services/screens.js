@@ -12,11 +12,17 @@ export const getScreens = async (req, res) => {
     
     const { movieID } = req.params || req.query;
 
-    if(!movieID) res.status(400).send(status[400]);
+    if(!movieID) {
+        res.status(400).send(status[400]);
+        return;
+    }
 
     Screens.find({ movieID }, (err, screens) => {
 
-        if(err || !screens) res.status(500).send(err);
+        if(err || !screens) {
+            res.status(500).send(err);
+            return;
+        }
 
         res.status(200).send(screens);
     });
@@ -26,7 +32,10 @@ export const createScreens = (req, res) => {
 
     const { movieID } = req.body;
     
-    if(!movieID) res.status(400);
+    if(!movieID){
+        res.status(400);
+        return;
+    } 
 
     let newScreens = [];
 
@@ -35,13 +44,18 @@ export const createScreens = (req, res) => {
         let cloneScreen = {...screen, movieID: mongoose.Types.ObjectId(movieID) };
         const Screen = new Screens(cloneScreen);
         Screen.save((err, newScreen) => {
-            if (err || !newScreen) return cb(err);
+            if (err || !newScreen) {
+                return cb(err);
+            }
             newScreens = [...newScreens, ...[newScreen]]
             return cb();
         });
     }, (err) => {
 
-        if(err) res.status(500).send(err);
+        if(err) {
+            res.status(500).send(err);
+            return;
+        }
 
         res.status(201).send(newScreens);
     });

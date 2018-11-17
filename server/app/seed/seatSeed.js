@@ -22,10 +22,14 @@ export const generateSeatSeed = (noOfSeats) => {
             // split the string and make the seat number generation sequential 1-9
             if (index > 9) {
                 let numbers = String(index + 1).split('');
+                if(numbers[numbers.length - 1] === 0) {
+                    count = numbers[0];
+                    return `${string}-${count}`;
+                } 
                 count = numbers[numbers.length - 1];
                 return `${string}-${count}`;
             }
-            return `${string}-${index + 1}`
+            return `${string}-${index}`
         });
 
     // generate the seat objects

@@ -45,3 +45,5 @@
 
 ### Project Structure
 
+Repository has client and server codebase residing in the respective folders.
+

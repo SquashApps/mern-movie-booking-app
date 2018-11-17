@@ -17,4 +17,6 @@ const seatSchema = mongoose.Schema({
     },
   });
 
+seatSchema.index({ bookingStatus: 1 });
+
 module.exports = mongoose.model('Seat', seatSchema);

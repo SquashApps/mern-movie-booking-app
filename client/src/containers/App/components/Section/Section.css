@@ -1,11 +1,6 @@
 .page__content {
-    width: 750px;
     padding-top:90px;
     margin:0 auto;
-}
-.seats__wrapper {
-    display: flex;
-    flex-wrap: wrap;
 }
 .screen_illuminator {
     position: fixed;
@@ -20,4 +15,11 @@
     font-weight: 300;
     text-align: center;
     opacity: 0.9;
+    max-width: 750px;
+    margin: 0 auto;
 }
+.seats__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, auto);
+}
+ 

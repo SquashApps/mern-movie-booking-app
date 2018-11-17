@@ -5,6 +5,10 @@ import {
   GET_SEATS_REQUEST,
   GET_SEATS_SUCCEEDED,
   GET_SEATS_FAILED,
+  TOGGLE_SEAT_BOOKING_REQUEST,
+  TOGGLE_SEAT_BOOKING_SUCCEEDED,
+  TOGGLE_SEAT_BOOKING_FAILED,
+  SEAT_NOT_AVAILABLE,
 } from './constants';
 
 export const getMovieGenres = {
@@ -14,7 +18,14 @@ export const getMovieGenres = {
 };
 
 export const getSeats = {
-  request: data => ({ type: GET_SEATS_REQUEST, payload: data }),
+  request: () => ({ type: GET_SEATS_REQUEST }),
   success: data => ({ type: GET_SEATS_SUCCEEDED, payload: data }),
   error: error => ({ type: GET_SEATS_FAILED, payload: error }),
+};
+
+export const toggleSeatBookingStatus = {
+  request: data => ({ type: TOGGLE_SEAT_BOOKING_REQUEST, payload: data }),
+  notAvailable: data => ({ type: SEAT_NOT_AVAILABLE, payload: data }),
+  success: data => ({ type: TOGGLE_SEAT_BOOKING_SUCCEEDED, payload: data }),
+  error: error => ({ type: TOGGLE_SEAT_BOOKING_FAILED, payload: error }),
 };

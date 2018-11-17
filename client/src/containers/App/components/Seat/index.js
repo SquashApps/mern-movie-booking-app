@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ImmutableProptypes } from 'react-immutable-proptypes';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import classNames from 'classnames';
 import './Seat.css';
 
@@ -19,7 +19,7 @@ const Seat = ({ seat, handleSeatClick }) => {
           })
         }
       role="presentation"
-      onClick={handleSeatClick}
+      onClick={ev => handleSeatClick(ev, seat)}
     >
       {seat.get('seatNo')}
     </span>
@@ -27,7 +27,7 @@ const Seat = ({ seat, handleSeatClick }) => {
 };
 
 Seat.propTypes = {
-  seat: ImmutableProptypes.Map.isrequired,
+  seat: ImmutablePropTypes.map.isRequired,
   handleSeatClick: PropTypes.func,
 };
 

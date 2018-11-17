@@ -14,3 +14,7 @@ export const makeSelectRequestStatusSelector = () => createSelector(
   [selectSeat], seatState => seatState.get('isRequestPending')
 );
 
+export const makeSelectNotAvailabilitySelector = () => createSelector(
+  [selectSeat], seatState => seatState.get('shouldShowNotAvailableMessage')
+);
+

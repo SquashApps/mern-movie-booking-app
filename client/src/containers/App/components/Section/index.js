@@ -1,6 +1,6 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { ImmutablePropTypes } from 'react-immutable-proptypes';
+import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import Loadble from 'react-loadable';
 import './Section.css';
 
@@ -9,11 +9,11 @@ const SeatLoadable = Loadble({
   loading: () => null,
 });
 
-const Section = ({ seats }) => (
+const Section = ({ seats, handleSeatClick }) => (
   <section className="page__content">
     <div className="seats__wrapper">
       {seats.map(seat => (
-        <SeatLoadable seat={seat} />
+        <SeatLoadable key={seat.get('_id')} seat={seat} handleSeatClick={handleSeatClick} />
         ))}
     </div>
     <div className="screen_illuminator">
@@ -23,7 +23,8 @@ const Section = ({ seats }) => (
 );
 
 Section.propTypes = {
-  seats: ImmutablePropTypes.List.isRequired,
+  seats: ImmutablePropTypes.list.isRequired,
+  handleSeatClick: PropTypes.func.isRequired,
 };
 
 export default Section;

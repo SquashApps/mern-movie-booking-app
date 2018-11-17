@@ -30,7 +30,7 @@ const Header = ({ genres, classes }) => (
 );
 
 Header.propTypes = {
-  genres: ImmutablePropTypes.List,
+  genres: ImmutablePropTypes.map,
   classes: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,

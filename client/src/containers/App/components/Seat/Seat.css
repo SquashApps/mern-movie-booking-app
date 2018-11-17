@@ -4,11 +4,18 @@
     padding: 10px;
     border-radius: 6px;
     cursor: pointer;
-}
-.seat:nth-child(3n) {
-    margin-right: 12px;
-    margin-left: 45px;
-}
-.booked {
+    white-space: nowrap;
+ }
+ 
+ .seat:nth-child(4),.seat:nth-child(14) , .seat:nth-child(24) {
+    grid-column-start: 5;
+ }
+ .seat:nth-child(7), .seat:nth-child(17), .seat:nth-child(27) {
+    grid-column-start: 9;
+ }
+ .seat:nth-child(31), .seat:nth-child(41) {
+    grid-column-start: 2;
+ }
+ .booked {
     background: var(--booked-seat-color);
-}
+ }
