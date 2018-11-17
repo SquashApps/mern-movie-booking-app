@@ -71,6 +71,10 @@
 
 **Please Note**
   Once the server is started, the seat seed from `seatSeed.js` file will be populated in the seats collections using `mongoose-seed` library. You can opt out from this setup if you don't need the collection to be dropped when you restart the server using `npm start` by commenting out the seed generation after mongoose connection start in [models](server/app/models/index.js) file.
+  
+  ### Demo
+  
+  ![demo](https://user-images.githubusercontent.com/22440334/48659618-c1e8c500-ea79-11e8-8b42-7361f6849da9.gif)
 
 
 
