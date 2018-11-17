@@ -43,7 +43,36 @@
 
 ## Server setup and architecture
 
-### Project Structure
+### Technologies used:
 
-Repository has client and server codebase residing in the respective folders.
+1.[node](https://reactjs.org/) 
+2. [express]()
+2. [mongoose](https://redux.js.org/)
+3. [helmet](https://https://github.com/jamiebuilds/react-loadable)
+4. [cors](https://github.com/reactjs/reselect)
+5. [mongoose-seed](https://github.com/gaearon/redux-thunk)
+
+### Project Structure
+ - [www](server/www) folder contains the server setup.
+ - [App](server/app) folder contains the routes, services and database setup.
+ - [Models](server/app/models) folder contains the bootstrapping of mongoose models.
+ - [Seed](server/app/seed) folder contains the initial size seed data for seat generation.
+ - [routes](server/app/routes) folder contains the route setup of the server.
+ - [services](server/app/services) folder contains the api services.
+
+### Local Development Setup
+
+- Clone the repository(skip the step if done already).
+- Navigate to the server folder.
+- Do `npm install`. The node verison should be `>=8.0.0`.
+- After successfull installation start the server using the command `npm start`.
+- The above command will transpile the code and generate `dist` folder. The transpiled version of index.js will be running in the port `8081`.
+- If you want to customize the Port number use the relevant `env` variables when running the `npm start` command.
+
+**Please Note**
+  Once the server is started, the seat seed from `seatSeed.js` file will be populated in the seats collections using `mongoose-seed` library. You can opt out from this setup if you don't need the collection to be dropped when you restart the server using `npm start` by commenting out the seed generation after mongoose connection start in [models](server/app/models/index.js) file.
+
+
+
+
 
